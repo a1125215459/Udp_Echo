@@ -26,8 +26,13 @@ int main(int argc,char *argv[])
         string buf;
         string peer_ip;
         uint16_t peer_port;
+        // cout << "buf: " << buf << endl;
+		// cout << "&peer_ip: " << &peer_ip << endl << "peer_ip: " << peer_ip << endl;
+		// cout << "&peer_port" << &peer_port << endl << "peer_port: " << peer_port << endl;
         //把buf对应的发送方的IP和Port填入
         CHECK_RET(Srv_Sock.Recv(&buf,&peer_ip,&peer_port));
+        // cout << "&peer_ip: " << &peer_ip << endl << "peer_ip: " << peer_ip << endl;
+		// cout << "&peer_port" << &peer_port << endl << "peer_port: " << peer_port << endl;
         cout << "client[" << peer_ip << ":" << peer_port << "]say:" << buf << endl ;
         //Send data
         buf.clear();
