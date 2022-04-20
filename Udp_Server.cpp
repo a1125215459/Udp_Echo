@@ -10,16 +10,16 @@ int main(int argc,char *argv[])
 {
     if(argc != 3)
     {
-        cout << "Input ./Udp_Server IP Port\n" ;
+        cout << "Input ./Udp_Server IP Port" << endl ;
         return -1;
     }
     string ip = argv[1];
     uint16_t port = stoi(argv[2]);
     UdpSocket Srv_Sock;
     CHECK_RET(Srv_Sock.Socket());
-    cout << "Socket Succ\n" ;
+    cout << "Socket Succ" << endl ;
     CHECK_RET(Srv_Sock.Bind(ip,port));
-    cout << "Bind Succ\n" ;
+    cout << "Bind Succ" << endl ;
     while(1)
     {
         //Recive data

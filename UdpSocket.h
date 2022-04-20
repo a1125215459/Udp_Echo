@@ -21,7 +21,7 @@ class UdpSocket
             _sockfd = socket(AF_INET,SOCK_DGRAM,IPPROTO_UDP);
             if(_sockfd < 0)
             {
-                cout << "sockfd error";
+                cout << "sockfd error" << endl ;
                 return false;
             }
             cout << "_sockfd: " << _sockfd << endl ;
@@ -39,7 +39,7 @@ class UdpSocket
             int ret = bind(_sockfd,(struct sockaddr*)&addr,len);
             if(ret < 0)
             {
-                cout << "bind error";
+                cout << "bind error" << endl ;
                 return false;
             }
             cout << "ret: " << ret << endl ;
@@ -56,7 +56,7 @@ class UdpSocket
             int ret = recvfrom(_sockfd,tmp,4096,0,(struct sockaddr*)&peer_addr,&len);
             if(ret < 0)
             {
-                cout << "recvfrom error";
+                cout << "recvfrom error" << endl ;
                 return false;
             }
             buf->assign(tmp,ret);
@@ -82,7 +82,7 @@ class UdpSocket
             int ret = sendto(_sockfd,data.c_str(),data.size(),0,(struct sockaddr*)&addr,len);
             if(ret < 0)
             {
-                cout << "sendto error";
+                cout << "sendto error" << endl ;
                 return false;
             }
             return true;

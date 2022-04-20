@@ -10,7 +10,7 @@ int main(int argc,char *argv[])
 {
     if(argc != 3)
     {
-        cout << "./Udp_Client IP Port\n";
+        cout << "./Udp_Client IP Port" << endl ;
         return -1;
     }
     string ip = argv[1];
