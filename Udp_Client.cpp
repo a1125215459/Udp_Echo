@@ -27,11 +27,11 @@ int main(int argc,char *argv[])
         CHECK_RET(Cli_Sock.Send(buf,ip,port));
         //recive data
         buf.clear();
-        string peer_ip;
-        uint16_t peer_port;
-        CHECK_RET(Cli_Sock.Recv(&buf,&peer_ip,&peer_port));
-        //cout << "&peer_ip: " << peer_ip << endl;
-        //cout << "&peer_port: " << peer_port << endl;
+        string Peer_ip;
+        uint16_t Peer_port;
+        CHECK_RET(Cli_Sock.Recv(&buf,&Peer_ip,&Peer_port));
+        //cout << "&Peer_ip: " << Peer_ip << endl;
+        //cout << "&Peer_port: " << Peer_port << endl;
         cout << "Server say: " << buf << endl;
     }
     Cli_Sock.Close();

@@ -49,11 +49,11 @@ class UdpSocket
         bool Recv(string *buf,string *ip = NULL,uint16_t *port = NULL)
         {   
             //用来接收对方的IP信息
-            struct sockaddr_in peer_addr;
+            struct sockaddr_in Peer_addr;
             socklen_t len = sizeof(struct sockaddr_in);
             char tmp[4096] = {0};
-            //通过_sockfd读取4096个字节到tmp。如果peer_addr不为NULL，则将其字节与发送方地址填入，并将实际地址大小存储在len中。返回读取的字节数或-1错误。
-            int ret = recvfrom(_sockfd,tmp,4096,0,(struct sockaddr*)&peer_addr,&len);
+            //通过_sockfd读取4096个字节到tmp。如果Peer_addr不为NULL，则将其字节与发送方地址填入，并将实际地址大小存储在len中。返回读取的字节数或-1错误。
+            int ret = recvfrom(_sockfd,tmp,4096,0,(struct sockaddr*)&Peer_addr,&len);
             if(ret < 0)
             {
                 cout << "recvfrom error" << endl ;
@@ -62,11 +62,11 @@ class UdpSocket
             buf->assign(tmp,ret);
             if(ip != NULL)
             {
-                *ip = inet_ntoa(peer_addr.sin_addr);
+                *ip = inet_ntoa(Peer_addr.sin_addr);
             }
             if(port != NULL)
             {
-                *port = peer_addr.sin_port;
+                *port = Peer_addr.sin_port;
             }
             return true;
         }
